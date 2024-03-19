@@ -44,4 +44,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Approve an appointment
+router.patch('/:id/approve', async (req, res) => {
+  try {
+     const appointment = await Appointment.findByIdAndUpdate(req.params.id, { isApproved: true }, { new: true });
+     res.status(200).json(appointment);
+  } catch (error) {
+     res.status(500).json({ error: 'Internal server error' });
+  }
+ });
+ 
+ // Reject an appointment
+ router.patch('/:id/reject', async (req, res) => {
+  try {
+     const appointment = await Appointment.findByIdAndUpdate(req.params.id, { isApproved: false }, { new: true });
+     res.status(200).json(appointment);
+  } catch (error) {
+     res.status(500).json({ error: 'Internal server error' });
+  }
+ });
+
 module.exports = router;

@@ -8,12 +8,21 @@ const BlogUpload = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
+  const [toggleBlogId, setToggleBlogId] = useState("");
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/blogs");
-        setBlogPosts(response.data);
+        // Filter only active blogs
+        const activeBlogs = response.data.filter(
+          (blogPost) => blogPost.isActive
+        );
+        // Sort the active blogs by 'createdAt' in descending order
+        const sortedBlogs = activeBlogs.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setBlogPosts(sortedBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -49,7 +58,6 @@ const BlogUpload = () => {
         }
       );
       console.log(response.data);
-      // alert("Blog post uploaded successfully");
       setIsFormVisible(false); // Hide the form after successful submission
 
       // Append the new blog post to the blogPosts state array
@@ -57,6 +65,33 @@ const BlogUpload = () => {
     } catch (error) {
       console.error("Error uploading blog post:", error);
       alert("Failed to upload blog post");
+    }
+  };
+
+  const handleToggleActiveStatus = async (blogId) => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:5000/api/blogs/${blogId}/toggle-active`
+      );
+      console.log(response.data);
+      alert("Blog's active status has been successfully toggled");
+
+      // Update the state to reflect the change
+      setBlogPosts(
+        blogPosts.map((blogPost) =>
+          blogPost._id === blogId
+            ? { ...blogPost, isActive: !blogPost.isActive }
+            : blogPost
+        )
+      );
+
+      // If the blog post is now inactive, remove it from the state
+      if (!response.data.isActive) {
+        setBlogPosts(blogPosts.filter((blogPost) => blogPost._id !== blogId));
+      }
+    } catch (error) {
+      console.error("Error toggling blog's active status:", error);
+      alert("Failed to toggle blog's active status");
     }
   };
 
@@ -170,6 +205,12 @@ const BlogUpload = () => {
                   {blogPost.title}
                 </div>
                 <p className="mt-2 text-gray-500">{blogPost.detail}</p>
+                <button
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
+                  onClick={() => handleToggleActiveStatus(blogPost._id)}
+                >
+                  Toggle Active Status
+                </button>
               </div>
             </div>
           </div>

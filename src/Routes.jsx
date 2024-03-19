@@ -14,7 +14,8 @@ const News = React.lazy(() => import("pages/News"));
 const Appointment = React.lazy(() => import("pages/Appointment"));
 const DoctorProfile = React.lazy(() => import("pages/DoctorProfile"));
 const UploadDoctor = React.lazy(() => import("pages/UploadDoctor/UploadDoctor"));
-const BlogUpload = React.lazy(() => import("pages/BlogsUpload/BlogUpload")); // Import the BlogUpload component
+const BlogUpload = React.lazy(() => import("pages/BlogsUpload/BlogUpload"));
+const AppointmentsPage = React.lazy(() => import("pages/AppointmentsPage/AppointmentsPage")); // Import the AppointmentsPage component
 
 const ProjectRoutes = () => {
  return (
@@ -32,7 +33,8 @@ const ProjectRoutes = () => {
           <Route path="/singleservice" element={<SingleService />} />
           <Route path="/doctorprofile" element={<DoctorProfile />} />
           <Route path="/upload-doctor" element={<UploadDoctor />} />
-          <Route path="/upload-blog" element={<BlogUpload />} /> {/* Add the route for BlogUpload */}
+          <Route path="/upload-blog" element={<BlogUpload />} />
+          <Route path="/appointments" element={<AppointmentsPage />} /> {/* Add the route for AppointmentsPage */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

@@ -18,6 +18,8 @@ const UploadDoctor = () => {
   const [instagramLink, setInstagramLink] = useState("");
   const [facebookLink, setFacebookLink] = useState("");
   const [deleteDoctorId, setDeleteDoctorId] = useState("");
+  const [toggleDoctorId, setToggleDoctorId] = useState("");
+  const [isActive, setIsActive] = useState(true); // Default to true
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -52,7 +54,6 @@ const UploadDoctor = () => {
         }
       );
       console.log(response.data);
-      // navigate("/");
       toast.success("New Doctor data has been successfully added", {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -71,11 +72,30 @@ const UploadDoctor = () => {
       toast.success("Doctor has been successfully deleted", {
         position: toast.POSITION.TOP_RIGHT,
       });
-      // Optionally, clear the input field after successful deletion
       setDeleteDoctorId("");
     } catch (error) {
       console.error(error);
       toast.error("Failed to delete doctor", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
+
+  const handleToggleActiveStatus = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.patch(
+        `http://localhost:5000/api/doctors/${toggleDoctorId}/toggle-active`
+      );
+      console.log(response.data);
+      toast.success("Doctor's active status has been successfully toggled", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setToggleDoctorId("");
+      setIsActive(true); // Reset to default active status
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to toggle doctor's active status", {
         position: toast.POSITION.TOP_RIGHT,
       });
     }
@@ -235,6 +255,50 @@ const UploadDoctor = () => {
             type="submit"
           >
             Upload Doctor
+          </button>
+        </div>
+      </form>
+      <form
+        onSubmit={handleToggleActiveStatus}
+        className="max-w-lg mx-auto mt-10"
+      >
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="toggleDoctorId"
+          >
+            Doctor ID to Toggle Active Status
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="toggleDoctorId"
+            type="text"
+            placeholder="Doctor ID"
+            value={toggleDoctorId}
+            onChange={(e) => setToggleDoctorId(e.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="isActive"
+          >
+            Active Status
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="isActive"
+            type="checkbox"
+            checked={isActive}
+            onChange={(e) => setIsActive(e.target.checked)}
+          />
+        </div>
+        <div className="flex items-center justify-between">
+          <button
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Toggle Active Status
           </button>
         </div>
       </form>

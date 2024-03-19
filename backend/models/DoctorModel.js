@@ -11,6 +11,7 @@ const doctorSchema = new mongoose.Schema({
  youtubeLink: { type: String },
  instagramLink: { type: String },
  facebookLink: { type: String },
+ isActive: { type: Boolean, default: true },
 }, { timestamps: true });
 
 const Doctor = mongoose.model("Doctor", doctorSchema);

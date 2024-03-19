@@ -88,4 +88,22 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// routes/doctorRoutes.js
+router.patch("/:id/toggle-active", async (req, res) => {
+  try {
+     const doctor = await Doctor.findById(req.params.id);
+     if (!doctor) {
+       return res.status(404).json({ message: "Doctor not found" });
+     }
+ 
+     doctor.isActive = !doctor.isActive; // Toggle the isActive status
+     await doctor.save();
+ 
+     res.json({ message: "Doctor's active status toggled successfully", doctor });
+  } catch (err) {
+     console.error("Error toggling doctor's active status:", err);
+     res.status(500).json({ message: "Server Error" });
+  }
+ });
+
 module.exports = router;

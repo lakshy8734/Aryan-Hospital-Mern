@@ -11,21 +11,23 @@ const HomeColumnrectangletwenty = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/doctors"); // Adjust the URL based on your backend API
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        console.log(data[0].image.replace(/\\/g, "/"));
-        setDoctors(data);
-      } catch (error) {
-        console.error("Error fetching doctors data:", error);
-      }
+       try {
+         const response = await fetch("http://localhost:5000/api/doctors"); // Adjust the URL based on your backend API
+         if (!response.ok) {
+           throw new Error("Network response was not ok");
+         }
+         const data = await response.json();
+         // Filter doctors to only include those with isActive set to true
+         const activeDoctors = data.filter(doctor => doctor.isActive);
+         console.log(activeDoctors[0].image.replace(/\\/g, "/"));
+         setDoctors(activeDoctors); // Set the state with the filtered doctors
+       } catch (error) {
+         console.error("Error fetching doctors data:", error);
+       }
     };
-
+   
     fetchData();
-  }, []);
+   }, []);
 
   return (
     <>

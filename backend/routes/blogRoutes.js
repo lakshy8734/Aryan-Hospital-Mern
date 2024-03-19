@@ -45,6 +45,24 @@ router.get("/:id", async (req, res) => {
  }
  });
 
+ // routes/blogRoutes.js
+router.patch("/:id/toggle-active", async (req, res) => {
+   try {
+      const blog = await Blog.findById(req.params.id);
+      if (!blog) {
+        return res.status(404).json({ message: "Blog not found" });
+      }
+  
+      blog.isActive = !blog.isActive; // Toggle the isActive status
+      await blog.save();
+  
+      res.json({ message: "Blog's active status toggled successfully", blog });
+   } catch (err) {
+      console.error("Error toggling blog's active status:", err);
+      res.status(500).json({ message: "Server Error" });
+   }
+  });
+
 // Add more routes for updating and deleting blogs as needed
 
 module.exports = router;

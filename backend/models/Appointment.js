@@ -10,6 +10,8 @@ const appointmentSchema = new mongoose.Schema({
   phoneNo: { type: String, required: true },
   message: { type: String },
   department: { type: String, required: true },
+  isActive: { type: Boolean, default: true },
+  isApproved: { type: Boolean },
 });
 
 const Appointment = mongoose.model("Appointment", appointmentSchema);
