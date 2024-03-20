@@ -20,15 +20,23 @@ const UploadDoctor = () => {
   const [deleteDoctorId, setDeleteDoctorId] = useState("");
   const [toggleDoctorId, setToggleDoctorId] = useState("");
   const [isActive, setIsActive] = useState(true); // Default to true
+  const [doctorId, setDoctorId] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagePreview(reader.result);
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
+    if (e.target.files && e.target.files[0]) {
+       setImage(e.target.files[0]);
+       const reader = new FileReader();
+       reader.onloadend = () => {
+         setImagePreview(reader.result);
+       };
+       reader.readAsDataURL(e.target.files[0]);
+    } else {
+       setImage(null);
+       setImagePreview("");
+    }
+   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,6 +50,10 @@ const UploadDoctor = () => {
     formData.append("youtubeLink", youtubeLink);
     formData.append("instagramLink", instagramLink);
     formData.append("facebookLink", facebookLink);
+    if (isAdmin) {
+      formData.append("doctorId", doctorId);
+      formData.append("password", password);
+    }
 
     try {
       const response = await axios.post(
@@ -249,6 +261,59 @@ const UploadDoctor = () => {
             onChange={(e) => setFacebookLink(e.target.value)}
           />
         </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="isAdmin"
+          >
+            Do You Want To Generate DoctorId & Password ?
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-50% py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="isAdmin"
+            type="checkbox"
+            checked={isAdmin}
+            onChange={(e) => setIsAdmin(e.target.checked)}
+          />
+        </div>
+
+        {/* Conditionally render doctorId and password fields */}
+        {isAdmin && (
+          <>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="doctorId"
+              >
+                Doctor ID
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="doctorId"
+                type="text"
+                placeholder="Doctor ID"
+                value={doctorId}
+                onChange={(e) => setDoctorId(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </>
+        )}
         <div className="flex items-center justify-between">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -302,7 +367,7 @@ const UploadDoctor = () => {
           </button>
         </div>
       </form>
-      <form onSubmit={handleDeleteDoctor} className="max-w-lg mx-auto mt-10">
+      {/* <form onSubmit={handleDeleteDoctor} className="max-w-lg mx-auto mt-10">
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -327,7 +392,7 @@ const UploadDoctor = () => {
             Delete Doctor
           </button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

@@ -68,7 +68,7 @@ const HomeColumnrectangletwenty = (props) => {
             >
               <div className="flex flex-col items-start justify-start sm:ml-[0] w-auto">
                 <Img
-                  className="h-[350px] sm:h-auto object-cover w-[317px] md:w-full"
+                  className="h-[350px] sm:h-auto object-fill w-[317px] md:w-full"
                   src={`http://localhost:5000/${doctor.image.replace(
                     /\\/g,
                     "/"

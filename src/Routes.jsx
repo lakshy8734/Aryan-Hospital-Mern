@@ -1,5 +1,6 @@
 // src/Routes.jsx
 import React from "react";
+import "./Router.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import NotFound from "pages/NotFound";
@@ -18,10 +19,18 @@ const BlogUpload = React.lazy(() => import("pages/BlogsUpload/BlogUpload"));
 const AppointmentsPage = React.lazy(() => import("pages/AppointmentsPage/AppointmentsPage"));
 // const PaymentPage = React.lazy(() => import("pages/PaymentPage/PaymentPage")); // Import the PaymentPage component
 const PaymentPage = React.lazy(() => import("pages/PaymentPage/PaymentPage"));
+const Login = React.lazy(() => import("pages/DoctorLogin/DoctoLogin"));
 
 const ProjectRoutes = () => {
  return (
-    <React.Suspense fallback={<>Loading...</>}>
+    <React.Suspense fallback={<>
+      <svg className="pl Loader" width="240" height="240" viewBox="0 0 240 240">
+        <circle className="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 660" strokeDashoffset="-330" strokeLinecap="round"></circle>
+        <circle className="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 220" strokeDashoffset="-110" strokeLinecap="round"></circle>
+        <circle className="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
+        <circle className="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
+    </svg>
+    </>}>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,6 +47,7 @@ const ProjectRoutes = () => {
           <Route path="/upload-blog" element={<BlogUpload />} />
           <Route path="/appointments" element={<AppointmentsPage />} />
           <Route path="/payment" element={<PaymentPage />} /> 
+          <Route path="/doctor-login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
- 
+import style from '../../styles/Cardio.module.css';
+
 import {
   Accordion,
   AccordionItem,
@@ -10,7 +11,7 @@ import {
   AccordionItemState,
 } from "react-accessible-accordion";
 import { useNavigate } from "react-router-dom";
- 
+
 import {
   Button,
   Img,
@@ -30,6 +31,10 @@ import HomeColumnFourteen from "components/HomeColumnFourteen";
 import HomeColumnNine from "components/HomeColumnNine";
 import HomeColumnrectangletwenty from "components/HomeColumnrectangletwenty";
 import HomeNewssection from "components/HomeNewssection";
+import doctor1 from '../../data/images/WhatsApp Image 2024-03-19 at 11.38.46 AM.jpeg'
+import doctor2 from '../../data/images/WhatsApp Image 2024-03-20 at 2.45.02 PM.jpeg'
+import doctor3 from '../../data/images/WhatsApp Image 2024-03-20 at 2.45.18 PM.jpeg'
+import doctor4 from '../../data/images/WhatsApp Image 2024-03-20 at 2.45.30 PM.jpeg'
 
 
 const dateOptionsList = [
@@ -45,7 +50,7 @@ const doctorOptionsList = [
 
 
 const HomePage = () => {
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
 
   const sliderRef = React.useRef(null);
   const [sliderState, setsliderState] = React.useState(0);
@@ -55,8 +60,8 @@ const HomePage = () => {
   return (
     <>
       <div className="bg-white-A700 border border-black-900 border-solid flex flex-col font-yesevaone items-center justify-start mx-auto w-full">
-      <Header className="bg-white-A700 flex md:flex-col flex-row md:gap-5 items-center justify-center md:px-5 w-full" />
-      <Navbar className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[276px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full" activePage="home" />  
+        <Header className="bg-white-A700 flex md:flex-col flex-row md:gap-5 items-center justify-center md:px-5 w-full" />
+        <Navbar className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[276px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full" activePage="home" />
         <div className="flex flex-col font-worksans md:px-5 relative w-full">
           <div className="h-[550px] mx-auto w-full">
             {/* <Img
@@ -64,15 +69,15 @@ const HomePage = () => {
               src="images/img_physiciantrend.png"
               alt="physiciantrend"
             /> */}
-            <div className="absolute bg-gradient  flex flex-col h-full inset-[0] items-center justify-center m-auto w-full">
+            <div className="absolute  flex flex-col h-full inset-[0] items-center justify-center m-auto w-full">
               <div
                 className="bg-cover bg-no-repeat flex flex-col h-[600px] items-center justify-start w-full"
-                style={{ backgroundImage: "url('images/img_group8.svg')" }}
+                
               >
                 <div className="h-[550px] relative w-full">
                   <Img
-                    className="h-[550px] m-auto object-cover w-full"
-                    src="images/img_physiciantrend_550x1366.png"
+                    className="h-[550px] m-auto object-fill w-full"
+                    src={doctor1}
                     alt="physiciantrend_One"
                   />
                   <div className="absolute flex flex-col h-max inset-y-[0] items-start justify-start left-[14%] my-auto w-[38%]">
@@ -205,7 +210,7 @@ const HomePage = () => {
         <div className="h-[250px] md:h-[311px] max-w-[992px] mt-[61px] mx-auto md:px-5 relative w-full">
           <Img
             className="h-[250px] m-auto object-cover w-full"
-            src="images/img_blackdoctors1.png"
+            src={doctor4}
             alt="blackdoctorsOne"
           />
           <Img
@@ -222,10 +227,7 @@ const HomePage = () => {
             >
               Care you can believe in
             </Text>
-            <Text
-              className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900"
-              size="txtYesevaOneRegular32"
-            >
+            <Text className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900" size="txtYesevaOneRegular32">
               Our Services
             </Text>
           </div>
@@ -400,7 +402,7 @@ const HomePage = () => {
                 <div className="h-[231px] relative w-full">
                   <Img
                     className="absolute h-[231px] inset-[0] justify-center m-auto object-cover w-full"
-                    src="images/img_rectangle13.png"
+                    src={doctor2}
                     alt="rectangleThirteen"
                   />
                   <Img
@@ -412,7 +414,7 @@ const HomePage = () => {
                 <div className="h-[231px] relative w-full">
                   <Img
                     className="h-[231px] m-auto object-cover w-full"
-                    src="images/img_rectangle14.png"
+                    src={doctor3}
                     alt="rectangleFourteen"
                   />
                   <Img
@@ -425,196 +427,116 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+
         <div className="flex flex-col font-worksans md:gap-10 gap-[61px] items-center justify-start max-w-[992px] mt-32 mx-auto md:px-5 w-full">
           <div className="flex flex-col gap-[9px] items-center justify-start">
-            <Text
-              className="text-blue-500 text-center text-lg tracking-[2.88px] uppercase"
-              size="txtWorkSansBold18"
-            >
+            <Text className="text-blue-500 text-center text-lg tracking-[2.88px] uppercase" size="txtWorkSansBold18">
               Always Caring
             </Text>
-            <Text
-              className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900"
-              size="txtYesevaOneRegular32"
-            >
+
+            <Text className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900" size="txtYesevaOneRegular32">
               Our Specialties
             </Text>
           </div>
-          <div className="sm:h-[1181px] md:h-[453px] h-[516px] relative w-full">
-            <div className="absolute bg-indigo-900 flex flex-col items-center justify-start left-1/4 p-[50px] md:px-10 sm:px-5 rounded-[5px] top-[0] w-1/4">
-              <div className="flex flex-col gap-2 items-center justify-start w-[34%] md:w-full">
-                <Img className="h-11" src="images/img_close.svg" alt="close" />
-                <Text
-                  className="text-base text-blue-100 text-center"
-                  size="txtWorkSansRegular16Blue100"
-                >
-                  Bones
+
+
+
+
+          <div className={style.MainCardio}>
+
+            <div style={{ display: 'flex', flexDirection: 'column',gap:'10px'}}>
+
+              <div className={style.Border} style={{  display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img  className="h-11 " src="images/img_close.svg" alt="close" />
+                <Text>
+                  Gynaecologist
                 </Text>
               </div>
-            </div>
-            <div className="flex flex-col gap-[9px] h-full items-center justify-start ml-[84px] mt-[50px] w-[8%]">
-              <Img
-                className="h-11"
-                src="images/img_favorite_blue_500.svg"
-                alt="favorite_One"
-              />
-              <Text
-                className="text-base text-center text-gray-900"
-                size="txtWorkSansRegular16"
-              >
-                Neurology
-              </Text>
-            </div>
-            <div
-              className="absolute bg-cover bg-no-repeat flex flex-col h-full inset-[0] items-center justify-center m-auto p-[45px] md:px-10 sm:px-5 w-full"
-              style={{ backgroundImage: "url('images/img_group10.svg')" }}
-            >
-              <div className="flex flex-col md:gap-10 gap-[100px] justify-start my-1 w-[99%] md:w-full">
-                <div className="flex flex-row items-center justify-between md:ml-[0] ml-[527px] w-[41%] md:w-full">
-                  <div className="flex flex-col gap-[9px] items-center justify-start w-[73px]">
-                    <Img
-                      className="h-11"
-                      src="images/img_favorite_blue_500.svg"
-                      alt="favorite_Two"
-                    />
-                    <Text
-                      className="text-base text-center text-gray-900"
-                      size="txtWorkSansRegular16"
-                    >
-                      Oncology
-                    </Text>
-                  </div>
-                  <div className="flex flex-col gap-[9px] items-center justify-start w-[44%]">
-                    <Img
-                      className="h-11"
-                      src="images/img_favorite_blue_500.svg"
-                      alt="favorite_Three"
-                    />
-                    <Text
-                      className="text-base text-center text-gray-900"
-                      size="txtWorkSansRegular16"
-                    >
-                      Otorhinolaryngology
-                    </Text>
-                  </div>
-                </div>
-                <List
-                  className="flex flex-col gap-[99px] items-center mr-5 w-[98%]"
-                  orientation="vertical"
-                >
-                  <div className="flex sm:flex-col flex-row sm:gap-10 items-center justify-between w-full">
-                    <div className="flex sm:flex-1 flex-col gap-[9px] items-center justify-start w-[14%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Ophthalmology
-                      </Text>
-                    </div>
-                    <div className="flex sm:flex-1 flex-col gap-[7px] items-center justify-start w-[14%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite_One"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Cardiovascular
-                      </Text>
-                    </div>
-                    <div className="flex sm:flex-1 flex-col gap-[9px] items-center justify-start w-[12%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite_Two"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Pulmonology
-                      </Text>
-                    </div>
-                    <div className="flex sm:flex-1 flex-col gap-[7px] items-center justify-start w-[14%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite_Three"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Renal Medicine
-                      </Text>
-                    </div>
-                  </div>
-                  <div className="flex sm:flex-col flex-row sm:gap-10 items-center justify-between w-[99%] md:w-full">
-                    <div className="flex flex-col gap-[9px] items-center justify-start w-[16%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Gastroenterology
-                      </Text>
-                    </div>
-                    <div className="flex flex-col gap-[9px] items-center justify-start w-[7%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite_One"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Urology
-                      </Text>
-                    </div>
-                    <div className="flex flex-col gap-[9px] items-center justify-start w-[12%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite_Two"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Dermatology
-                      </Text>
-                    </div>
-                    <div className="flex flex-col gap-[9px] items-center justify-start w-[12%] sm:w-full">
-                      <Img
-                        className="h-11"
-                        src="images/img_favorite_blue_500.svg"
-                        alt="favorite_Three"
-                      />
-                      <Text
-                        className="text-base text-center text-gray-900"
-                        size="txtWorkSansRegular16"
-                      >
-                        Gynaecology
-                      </Text>
-                    </div>
-                  </div>
-                </List>
+
+
+              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img className="h-11"  src="images/img_favorite_blue_500.svg" alt="favorite_One" />
+                <Text>
+                  Neurologists
+                </Text>
               </div>
+
+              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img
+                  className="h-11"
+                  src="images/img_favorite_blue_500.svg"
+                  alt="favorite_One"
+                />
+                <Text>
+                  paediatricians
+                </Text>
+              </div>
+
             </div>
+            <div style={{ display: 'flex', flexDirection: 'column',gap:'10px'}}>
+
+              <div className={style.Border} style={{  display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img  className="h-11 " src="images/img_close.svg" alt="close" />
+                <Text>
+                  General Medicine
+                </Text>
+              </div>
+
+
+              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img className="h-11"  src="images/img_favorite_blue_500.svg" alt="favorite_One" />
+                <Text>
+                  Surgeon
+                </Text>
+              </div>
+
+              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img
+                  className="h-11"
+                  src="images/img_favorite_blue_500.svg"
+                  alt="favorite_One"
+                />
+                <Text>
+                  Radiologists
+                </Text>
+              </div>
+
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column',gap:'10px'}}>
+
+              <div className={style.Border} style={{  display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img  className="h-11 " src="images/img_close.svg" alt="close" />
+                <Text>
+                  Pulmonologists
+                </Text>
+              </div>
+
+
+              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img className="h-11"  src="images/img_favorite_blue_500.svg" alt="favorite_One" />
+                <Text>
+                  General Physician
+                </Text>
+              </div>
+
+              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+                <Img
+                  className="h-11"
+                  src="images/img_favorite_blue_500.svg"
+                  alt="favorite_One"
+                />
+                <Text>
+                  Internal Medicine
+                </Text>
+              </div>
+
+            </div>
+
+           
           </div>
         </div>
+
         <div className="font-worksans h-[573px] sm:h-[637px] md:h-[858px] mt-16 md:px-5 relative w-full">
           <Img
             className="h-[573px] m-auto object-cover w-full"
@@ -642,14 +564,14 @@ const HomePage = () => {
             </div>
             <HomeColumnNine className="bg-blue-100 flex md:flex-1 flex-col items-center justify-start rounded-[5px] w-2/5 md:w-full" />
           </div>
-        </div> 
+        </div>
         <HomeColumnrectangletwenty className="flex flex-col font-worksans items-center justify-start max-w-[992px] mt-16 mx-auto md:px-5 w-full" />
-        <HomeNewssection className="bg-gray-50 flex flex-col font-worksans items-center justify-end mt-16 p-16 md:px-10 sm:px-5 w-full" />
+        <HomeNewssection  className="bg-gray-50 flex flex-col font-worksans items-center justify-end mt-16 p-16 md:px-10 sm:px-5 w-full" />
         <HomeColumnFourteen className="flex flex-col font-worksans md:gap-10 gap-16 items-center justify-start max-w-[992px] mt-16 mx-auto md:px-5 w-full" />
         <Footer className="bg-indigo-900 flex font-worksans items-center justify-center mt-16 md:px-5 w-full" />
       </div>
     </>
   );
 };
- 
+
 export default HomePage;

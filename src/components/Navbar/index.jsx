@@ -16,7 +16,7 @@ const AboutUsNavbar = ({ activePage }) => {
 
   return (
     <>
-    <div className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[300px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full">
+    <div className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[300px] items-center justify-center max-w-[100vw] md:px-10 sm:px-5 px-[187px] py-[17px] w-full">
       <div className="flex sm:flex-1 sm:flex-col flex-row gap-5 items-start justify-start w-auto sm:w-full">
         <Link to="/">
           <Text
@@ -77,6 +77,16 @@ const AboutUsNavbar = ({ activePage }) => {
             variant="fill"
           >
             Appointment
+          </Button>
+        </Link>
+        <Link to="/doctorLogin">
+          <Button
+            className="cursor-pointer font-medium leading-[normal] min-w-[173px] rounded-[22px] text-base text-center"
+            color="blue_100"
+            size="sm"
+            variant="fill"
+          >
+            Login
           </Button>
         </Link>
       </div>
