@@ -45,7 +45,7 @@ const AboutusPage = () => {
                   className="text-blue-500 text-lg tracking-[2.88px] uppercase"
                   size="txtWorkSansBold18"
                 >
-                  Welcome to Hospital name
+                  Welcome to Aryan Hospital 
                 </Text>
                 <Text
                   className="text-5xl sm:text-[38px] md:text-[44px] text-indigo-900"
@@ -133,19 +133,14 @@ const AboutusPage = () => {
                 className="leading-[140.00%] mt-[31px] text-base text-black-900 w-full"
                 size="txtWorkSansRegular16Black900"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                placerat scelerisque tortor ornare ornare. Quisque placerat
-                scelerisque tortor ornare ornare Convallis felis vitae tortor
-                augue. Velit nascetur proin massa in. Consequat faucibus
-                porttitor enim et.
+                Aryan Hospital has the world-class facilities to meet the health care needs of every segment of society.
+                 With various medical facilities accessible under one roof at very nominal cost, we work towards giving you a very individualized treatment with the highest quality of care.
               </Text>
               <Text
                 className="leading-[140.00%] mt-3.5 text-base text-black-900 w-full"
                 size="txtWorkSansRegular16Black900"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                placerat scelerisque. Convallis felis vitae tortor augue. Velit
-                nascetur proin massa in.
+                The Aryan Hospital is located at Old Railway Road, Gurgaon, and is amongst the Oldest Multi Specialty hospital of Gurgaon founded in 1985.
               </Text>
             </div>
           </div>

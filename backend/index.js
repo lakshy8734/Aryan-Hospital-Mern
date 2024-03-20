@@ -5,8 +5,11 @@ const compression = require("compression");
 const path = require("path");
 const connectDB = require("./db");
 const appointmentRoutes = require("./routes/appointmentRoutes");
-const doctorRoutes = require("./routes/doctorRoutes")
-const blogRoutes = require("./routes/blogRoutes")
+const doctorRoutes = require("./routes/doctorRoutes");
+const blogRoutes = require("./routes/blogRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+// const webhookRoutes = require("./routes/webhookRoutes");
+// const routes = require('./routes/paymentRoutes');
 
 // Load environment variables
 require("dotenv").config();
@@ -22,18 +25,29 @@ app.use(express.json());
 app.use(compression());
 
 // Set up the cors middleware and specify the origin
-app.use(cors({
-    origin: process.env.FRONTEND_DOMAIN // replace with your website's URL
-  }));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_DOMAIN, // replace with your website's URL
+  })
+);
 
 // Serve static files from the uploads/doctors and uploads/blogs directories
-app.use('/uploads/doctors', express.static(path.join(__dirname, 'uploads/doctors')));
-app.use('/uploads/blogs', express.static(path.join(__dirname, 'uploads/blogs')));
+app.use(
+  "/uploads/doctors",
+  express.static(path.join(__dirname, "uploads/doctors"))
+);
+app.use(
+  "/uploads/blogs",
+  express.static(path.join(__dirname, "uploads/blogs"))
+);
 
 // Routes
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/payments", paymentRoutes);
+// app.use("/api/webhooks", webhookRoutes);
+// app.use('/api', routes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;

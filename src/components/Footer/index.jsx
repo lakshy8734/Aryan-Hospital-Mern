@@ -57,12 +57,12 @@ const Footer = (props) => {
                 </li>
                 <li>
                   <Text className="text-base text-white-A700" size="txtWorkSansRegular16WhiteA700">
-                    Email: {footerData.contact.email}
+                    Email: marketing@aryanhospital.in
                   </Text>
                 </li>
                 <li>
                   <Text className="text-base text-white-A700" size="txtWorkSansRegular16WhiteA700">
-                    Address: {footerData.contact.addressLine1}
+                    Address: Gurgaon
                   </Text>
                 </li>
                 <li>

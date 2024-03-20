@@ -8,7 +8,7 @@ import {
   AccordionItemPanel,
   AccordionItemState,
 } from "react-accessible-accordion";
- 
+
 import {
   Button,
   Img,
@@ -23,7 +23,7 @@ import HomeColumnFourteen from "components/HomeColumnFourteen";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import AboutUsSubhead from "components/AboutUsSubhead";
-import  HomeColumnNine  from "components/HomeColumnNine"; // Import HomeColumnNine component
+import HomeColumnNine from "components/HomeColumnNine"; // Import HomeColumnNine component
 
 const dateOptionsList = [
   { label: "Option1", value: "option1" },
@@ -41,8 +41,11 @@ const AppointmentPage = () => {
     <>
       <div className="bg-white-A700 flex flex-col font-yesevaone items-center justify-start mx-auto w-full">
         <Header className="bg-white-A700 flex md:flex-col flex-row md:gap-5 items-center justify-center md:px-5 w-full" />
-        <Navbar className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[276px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full"activePage="appointment" />
-        <AboutUsSubhead 
+        <Navbar
+          className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[276px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full"
+          activePage="appointment"
+        />
+        <AboutUsSubhead
           className="h-[250px] md:px-5 relative w-full"
           rectanglethree="images/img_rectangle3.png"
           homeabouttext="Home / Appointment"
@@ -62,15 +65,16 @@ const AppointmentPage = () => {
                   className="leading-[140.00%] text-base text-gray-900 w-full"
                   size="txtWorkSansRegular16"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque placerat scelerisque tortor ornare ornare. Convallis
-                  felis vitae tortor augue. Velit nascetur proin massa in.
-                  Consequat faucibus porttitor enim et.
+                  Book your appointment at Aryan Hospital effortlessly. Choose
+                  your specialist, select a time, and begin your journey to
+                  better health. Experience expert care, modern facilities, and
+                  a patient-first approach. Need help? Contact us. Your wellness
+                  is our priority
                 </Text>
               </div>
               <HomeColumnNine />
-              </div> 
-              
+            </div>
+
             <div className="bg-indigo-900 flex md:flex-1 flex-col font-yesevaone items-center justify-end p-11 md:px-10 sm:px-5 rounded-[5px] w-[49%] md:w-full">
               <Text
                 className="mt-0.5 text-5xl sm:text-[38px] md:text-[44px] text-blue-100"
