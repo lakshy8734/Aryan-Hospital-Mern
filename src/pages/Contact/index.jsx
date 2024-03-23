@@ -60,7 +60,7 @@ const ContactPage = () => {
                   className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900"
                   size="txtYesevaOneRegular32"
                 >
-                  Contact
+                  Ask a Query
                 </Text>
               </div>
               <div className="bg-blue-100 flex flex-col items-center justify-start rounded-[5px] w-full">

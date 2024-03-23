@@ -12,16 +12,16 @@ const Header = (props) => {
 
   return (
     <>
-      <header className={Styles.Header}  style={{display:'flex', justifyContent:'space-around',width:'100vw',alignItems:'center', height:'12vh'}}>
+      <header className={Styles.Header}  style={{display:'flex', justifyContent:'space-around',width:'100vw',alignItems:'center'}}>
         <div>
           <Img
-            style={{width:'10em'}}
+            style={{width:'7em', height:'6em'}}
             src={hospitalImage}
             alt="Hospital Logo"
           />
         </div>
 
-        <div className={Styles.Header} style={{display:'flex',alignItems:'center',justifyContent:'space-around',gap: '2.2rem'}}>
+        <div className={Styles.set} style={{display:'flex',alignItems:'center',justifyContent:'space-around',gap: '2.2rem'}}>
 
           {headerData.sections.map((section, index) => (
             <div key={index} style={{display:'flex',alignItems:'center',justifyContent:'space-around'}}>

@@ -65,27 +65,27 @@ const HomeNewssection = (props) => {
                       {props?.titletext}
                     </Text>
                     <div className="flex flex-row gap-2.5 items-center justify-start mt-[23px] w-[33%] md:w-full">
-                      <div className="flex flex-row items-center justify-evenly w-[45%]">
+                      <div className="flex flex-row items-center justify-evenly w-[15rem] ">
                         <Img
-                          className="h-2.5"
+                          className="h-2.5 "
                           src="images/img_eye.svg"
                           alt="eye"
                         />
                         <Text
-                          className="text-gray-900 text-sm"
+                          className="text-gray-900 text-sm m-1"
                           size="txtWorkSansRegular14Gray900"
                         >
                           {props?.eyecount}
                         </Text>
                       </div>
-                      <div className="flex flex-row items-center justify-evenly w-[45%]">
+                      <div className="flex flex-row items-center justify-evenly w-[45%] m-1">
                         <Img
-                          className="h-3.5"
+                          className="h-3.5 m-1"
                           alt="favorite"
                           src={props?.favoriteicon}
                         />
                         <Text
-                          className="text-gray-900 text-sm"
+                          className="text-gray-900 text-sm "
                           size="txtWorkSansRegular14Gray900"
                         >
                           {props?.favoritecount}

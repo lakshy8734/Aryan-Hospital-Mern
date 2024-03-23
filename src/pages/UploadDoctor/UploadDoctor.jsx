@@ -20,26 +20,32 @@ const UploadDoctor = () => {
   const [deleteDoctorId, setDeleteDoctorId] = useState("");
   const [toggleDoctorId, setToggleDoctorId] = useState("");
   const [isActive, setIsActive] = useState(true); // Default to true
-  const [doctorId, setDoctorId] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-       setImage(e.target.files[0]);
-       const reader = new FileReader();
-       reader.onloadend = () => {
-         setImagePreview(reader.result);
-       };
-       reader.readAsDataURL(e.target.files[0]);
+      setImage(e.target.files[0]);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(e.target.files[0]);
     } else {
-       setImage(null);
-       setImagePreview("");
+      setImage(null);
+      setImagePreview("");
     }
-   };
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!name || !education || !department || !about || !experience || !image) {
+      toast.error("Please fill out all required fields", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
     const formData = new FormData();
     formData.append("name", name);
     formData.append("education", education);
@@ -50,8 +56,9 @@ const UploadDoctor = () => {
     formData.append("youtubeLink", youtubeLink);
     formData.append("instagramLink", instagramLink);
     formData.append("facebookLink", facebookLink);
+    formData.append("isAdmin", isAdmin);
     if (isAdmin) {
-      formData.append("doctorId", doctorId);
+      formData.append("username", username);
       formData.append("password", password);
     }
 
@@ -76,6 +83,12 @@ const UploadDoctor = () => {
 
   const handleDeleteDoctor = async (event) => {
     event.preventDefault();
+    if (!deleteDoctorId) {
+      toast.error("Please enter a Doctor ID to delete", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
     try {
       const response = await axios.delete(
         `http://localhost:5000/api/doctors/${deleteDoctorId}`
@@ -95,6 +108,12 @@ const UploadDoctor = () => {
 
   const handleToggleActiveStatus = async (event) => {
     event.preventDefault();
+    if (!toggleDoctorId) {
+      toast.error("Please enter a Doctor ID to toggle active status", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
     try {
       const response = await axios.patch(
         `http://localhost:5000/api/doctors/${toggleDoctorId}/toggle-active`
@@ -283,17 +302,17 @@ const UploadDoctor = () => {
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="doctorId"
+                htmlFor="username" // Changed from doctorId to username
               >
-                Doctor ID
+                Username
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="doctorId"
+                id="username" // Changed from doctorId to username
                 type="text"
-                placeholder="Doctor ID"
-                value={doctorId}
-                onChange={(e) => setDoctorId(e.target.value)}
+                placeholder="Username" // Changed from Doctor ID to Username
+                value={username} // Changed from doctorId to username
+                onChange={(e) => setUsername(e.target.value)} // Changed from setDoctorId to setUsername
               />
             </div>
             <div className="mb-4">

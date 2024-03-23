@@ -66,9 +66,7 @@ const Footer = (props) => {
                   </Text>
                 </li>
                 <li>
-                  <Text className="text-base text-white-A700" size="txtWorkSansRegular16WhiteA700">
-                    {footerData.contact.addressLine2}
-                  </Text>
+                  
                 </li>
               </ul>
             </div>
@@ -82,7 +80,7 @@ const Footer = (props) => {
                 className="font-worksans p-0 placeholder:text-indigo-900 text-base text-left w-full"
                 wrapClassName="flex w-full"
                 suffix={
-                  <div className="h-[29px] ml-6 w-[29px] bg-indigo-900">
+                  <div className="h-[29px] ml-6 w-[29px] ">
                     <Img
                       className="h-[29px] my-auto"
                       src="images/img_save.svg"
@@ -103,7 +101,7 @@ const Footer = (props) => {
               className="md:mt-0 mt-[3px] text-base text-white-A700"
               size="txtWorkSansRegular16WhiteA700"
             >
-              © 2021 Hospital’s name All Rights Reserved by PNTEC-LTD
+             2023 Aryan Hospital | All Rights Reserved | Powered by Growing Digital | arvanhospital@yahoo.com
             </Text>
             <Img
               className="h-6 md:ml-[0] ml-[422px] w-6"

@@ -6,7 +6,7 @@
     "emergency": {
       "text": "Emergency",
       "numbers": [
-        "681-812-255",
+        "",
         "9311339448"
       ]
     },
@@ -19,14 +19,14 @@
     "email": {
       "text": "Email",
       "addresses": [
-        "fildineeesoe@gmil.com",
-        "myebstudios@gmail.com"
+        "marketing@aryanhospital.in",
+        ""
       ]
     },
     "workinghours": {
       "text": "Working Hours",
-      "hours": "Mon-Sat 09:00-20:00",
-      "emergencyHours": "Sunday Emergency only"
+      "hours": "24 Hours Open",
+      "emergencyHours": ""
     }
   }
   

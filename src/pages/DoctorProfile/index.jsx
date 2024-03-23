@@ -49,23 +49,22 @@ const DoctorProfile = () => {
               alt="Doctor Image"
               className="w-[30%] md:w-full rounded-tr-[5px] rounded-tl-[5px] object-cover"
             />
-            <div className="flex flex-col mt-[29px] gap-[75px] flex-1">
-              <div className="flex justify-between items-center gap-5">
-                <Text size="xl" as="p" className="!text-black-900">
-                  Doctor’s Name: {doctor.name}
-                </Text>
-                <Text size="md" as="p" className="self-end !text-black-900">
-                  Experience: {doctor.experience}
-                </Text>
-              </div>
-              <div className="flex justify-between w-[89%] md:w-full gap-5">
-                <Text size="md" as="p" className="self-end !text-black-900">
-                  Department: {doctor.department}
-                </Text>
-                <Text size="md" as="p" className="self-start !text-black-900">
-                  Fees: {/* Add doctor fees if available */}
-                </Text>
-              </div>
+            <div className="flex flex-col mt-[9px] gap-[35px] flex-1">
+              <Text size="xl" as="p" className="!text-black-900">
+                Doctor’s ID: {doctor.doctorId} {/* Display the doctorId */}
+              </Text>
+              <Text size="xl" as="p" className="!text-black-900">
+                Doctor’s Name: {doctor.name}
+              </Text>
+              <Text size="md" as="p" className="!text-black-900">
+                Experience: {doctor.experience}
+              </Text>
+              <Text size="md" as="p" className="!text-black-900">
+                Department: {doctor.department}
+              </Text>
+              <Text size="md" as="p" className="!text-black-900">
+                Fees: {/* Add doctor fees if available */}
+              </Text>
             </div>
           </div>
           <div className="flex md:flex-col items-center gap-2.5">

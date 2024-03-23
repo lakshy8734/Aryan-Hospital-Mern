@@ -122,7 +122,7 @@ const HomeColumnrectangletwenty = (props) => {
                   size="sm"
                   variant="fill"
                   onClick={() =>
-                    navigate("/doctorprofile", { state: { doctorId: doctor._id }  })
+                    navigate("/doctorprofile", { state: { doctorId: doctor.doctorId }  })
                   }
                 >
                   View Profile

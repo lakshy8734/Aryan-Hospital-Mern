@@ -17,20 +17,81 @@ const DoctorProfile = React.lazy(() => import("pages/DoctorProfile"));
 const UploadDoctor = React.lazy(() => import("pages/UploadDoctor/UploadDoctor"));
 const BlogUpload = React.lazy(() => import("pages/BlogsUpload/BlogUpload"));
 const AppointmentsPage = React.lazy(() => import("pages/AppointmentsPage/AppointmentsPage"));
-// const PaymentPage = React.lazy(() => import("pages/PaymentPage/PaymentPage")); // Import the PaymentPage component
 const PaymentPage = React.lazy(() => import("pages/PaymentPage/PaymentPage"));
 const Login = React.lazy(() => import("pages/DoctorLogin/DoctoLogin"));
+const Gynaecology = React.lazy(() => import("./pages/Gynaecology"));
+const IVF = React.lazy(() => import("./pages/IVF"));
+const Pediatrics = React.lazy(() => import("./pages/Pediatrics"));
+const Neurology = React.lazy(() => import("./pages/Neurology"));
+const LapaSurgery = React.lazy(() => import("./pages/LapaSurgery"));
+const Ortho = React.lazy(() => import("./pages/Ortho"));
+const BSurgery = React.lazy(() => import("./pages/BSurgery"));
+const SOnco = React.lazy(() => import("./pages/SOnco"));
+const Kd = React.lazy(() => import("./pages/Kd"));
+// const Dashboard = React.lazy(() => import("pages/Dashboard/Dashboard")); // Import the Dashboard component
+const DoctorAppointmentProfile = React.lazy(() => import("pages/DoctorAppointmentProfile/DoctorAppointmentProfile")); // Import the DoctorAppointmentProfile component
 
 const ProjectRoutes = () => {
  return (
-    <React.Suspense fallback={<>
-      <svg className="pl Loader" width="240" height="240" viewBox="0 0 240 240">
-        <circle className="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 660" strokeDashoffset="-330" strokeLinecap="round"></circle>
-        <circle className="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 220" strokeDashoffset="-110" strokeLinecap="round"></circle>
-        <circle className="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
-        <circle className="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
-    </svg>
-    </>}>
+    <React.Suspense
+      fallback={
+        <>
+          <svg
+            className="pl Loader"
+            width="240"
+            height="240"
+            viewBox="0 0 240 240"
+          >
+            <circle
+              className="pl__ring pl__ring--a"
+              cx="120"
+              cy="120"
+              r="105"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 660"
+              strokeDashoffset="-330"
+              strokeLinecap="round"
+            ></circle>
+            <circle
+              className="pl__ring pl__ring--b"
+              cx="120"
+              cy="120"
+              r="35"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 220"
+              strokeDashoffset="-110"
+              strokeLinecap="round"
+            ></circle>
+            <circle
+              className="pl__ring pl__ring--c"
+              cx="85"
+              cy="120"
+              r="70"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 440"
+              strokeLinecap="round"
+            ></circle>
+            <circle
+              className="pl__ring pl__ring--d"
+              cx="155"
+              cy="120"
+              r="70"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 440"
+              strokeLinecap="round"
+            ></circle>
+          </svg>
+        </>
+      }
+    >
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -46,8 +107,19 @@ const ProjectRoutes = () => {
           <Route path="/upload-doctor" element={<UploadDoctor />} />
           <Route path="/upload-blog" element={<BlogUpload />} />
           <Route path="/appointments" element={<AppointmentsPage />} />
-          <Route path="/payment" element={<PaymentPage />} /> 
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/doctor-login" element={<Login />} />
+          <Route path="/gynaecology" element={<Gynaecology />} />
+          <Route path="/ivf" element={<IVF />} />
+          <Route path="/" element={<Pediatrics />} />
+          <Route path="/neurology" element={<Neurology />} />
+          <Route path="/lapaSurgery" element={<LapaSurgery />} />
+          <Route path="/ortho" element={<Ortho />} />
+          <Route path="/bSurgery" element={<BSurgery />} />
+          <Route path="/sOnco" element={<SOnco />} />
+          <Route path="/kd" element={<Kd />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> Added route for Dashboard */}
+          <Route path="/doctor-appointment-profile" element={<DoctorAppointmentProfile />} /> {/* Added route for DoctorAppointmentProfile */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

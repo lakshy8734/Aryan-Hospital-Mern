@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from '../../styles/Cardio.module.css';
+import style from "../../styles/Cardio.module.css";
+import  Styles from "../../styles/home.module.css";
 
 import {
   Accordion,
@@ -31,11 +32,10 @@ import HomeColumnFourteen from "components/HomeColumnFourteen";
 import HomeColumnNine from "components/HomeColumnNine";
 import HomeColumnrectangletwenty from "components/HomeColumnrectangletwenty";
 import HomeNewssection from "components/HomeNewssection";
-import doctor1 from '../../data/images/WhatsApp Image 2024-03-19 at 11.38.46 AM.jpeg'
-import doctor2 from '../../data/images/WhatsApp Image 2024-03-20 at 2.45.02 PM.jpeg'
-import doctor3 from '../../data/images/WhatsApp Image 2024-03-20 at 2.45.18 PM.jpeg'
-import doctor4 from '../../data/images/WhatsApp Image 2024-03-20 at 2.45.30 PM.jpeg'
-
+import doctor1 from "../../data/images/WhatsApp Image 2024-03-19 at 11.38.46 AM.jpeg";
+import doctor2 from "../../data/images/WhatsApp Image 2024-03-20 at 2.45.02 PM.jpeg";
+import doctor3 from "../../data/images/WhatsApp Image 2024-03-20 at 2.45.18 PM.jpeg";
+import doctor4 from "../../data/images/WhatsApp Image 2024-03-20 at 2.45.30 PM.jpeg";
 
 const dateOptionsList = [
   { label: "Option1", value: "option1" },
@@ -48,7 +48,6 @@ const doctorOptionsList = [
   { label: "Option3", value: "option3" },
 ];
 
-
 const HomePage = () => {
   const navigate = useNavigate();
 
@@ -60,8 +59,11 @@ const HomePage = () => {
   return (
     <>
       <div className="bg-white-A700 border border-black-900 border-solid flex flex-col font-yesevaone items-center justify-start mx-auto w-full">
-        <Header className="bg-white-A700 flex md:flex-col flex-row md:gap-5 items-center justify-center md:px-5 w-full" />
-        <Navbar className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[276px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full" activePage="home" />
+        <Header className="head bg-white-A700 flex md:flex-col flex-row md:gap-5 items-center justify-center md:px-5 w-full" />
+        <Navbar
+          className="bg-indigo-900 flex md:flex-col flex-row font-worksans md:gap-10 gap-[276px] items-center justify-center max-w-[1366px] md:px-10 sm:px-5 px-[187px] py-[17px] w-full"
+          activePage="home"
+        />
         <div className="flex flex-col font-worksans md:px-5 relative w-full">
           <div className="h-[550px] mx-auto w-full">
             {/* <Img
@@ -70,10 +72,7 @@ const HomePage = () => {
               alt="physiciantrend"
             /> */}
             <div className="absolute  flex flex-col h-full inset-[0] items-center justify-center m-auto w-full">
-              <div
-                className="bg-cover bg-no-repeat flex flex-col h-[600px] items-center justify-start w-full"
-                
-              >
+              <div className="bg-cover bg-no-repeat flex flex-col h-[600px] items-center justify-start w-full">
                 <div className="h-[550px] relative w-full">
                   <Img
                     className="h-[550px] m-auto object-fill w-full"
@@ -227,13 +226,16 @@ const HomePage = () => {
             >
               Care you can believe in
             </Text>
-            <Text className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900" size="txtYesevaOneRegular32">
+            <Text
+              className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900"
+              size="txtYesevaOneRegular32"
+            >
               Our Services
             </Text>
           </div>
           <div className="flex flex-col items-center justify-start w-full">
             <div className="flex md:flex-col flex-row md:gap-10 items-start justify-between w-full">
-              <div className="bg-white-A700_6c border border-indigo-900_6c border-solid flex md:flex-1 flex-col gap-[25px] items-center justify-end pt-6 rounded-[5px] w-[16%] md:w-full">
+              {/* <div className="bg-white-A700_6c border border-indigo-900_6c border-solid flex md:flex-1 flex-col gap-[25px] items-center justify-end pt-6 rounded-[5px] w-[16%] md:w-full">
                 <div className="flex flex-col gap-2.5 items-center justify-start w-[69%] md:w-full">
                   <Img
                     className="h-8 w-8"
@@ -300,7 +302,7 @@ const HomePage = () => {
                     View All
                   </Button>
                 </div>
-              </div>
+              </div> */}
               <div className="flex md:flex-1 flex-col items-start justify-start md:mt-0 mt-7 w-[48%] md:w-full">
                 <Text
                   className="md:text-2xl sm:text-[22px] text-[26px] text-black-900"
@@ -382,19 +384,30 @@ const HomePage = () => {
                     className="leading-[140.00%] text-base text-gray-900 w-full"
                     size="txtWorkSansRegular16"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Quisque placerat scelerisque tortor ornare ornare. Quisque
-                    placerat scelerisque tortor ornare ornare Convallis felis
-                    vitae tortor augue. Velit nascetur proin massa in. Consequat
-                    faucibus porttitor enim et.
+                    Primary and Specialty Care
                   </Text>
                   <Text
                     className="leading-[140.00%] text-base text-gray-900 w-full"
                     size="txtWorkSansRegular16"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Quisque placerat scelerisque. Convallis felis vitae tortor
-                    augue. Velit nascetur proin massa in.
+                    Family Medicine: Comprehensive care forall ages, focusing on
+                    prevention, diagnosis, and treatment.
+                  </Text>
+                  <Text
+                    className="leading-[140.00%] text-base text-gray-900 w-full"
+                    size="txtWorkSansRegular16"
+                  >
+                    Pediatrics: Specialized care for infants, children, and
+                    adolescents, supporting your child's health and development.
+                  </Text>
+                  <Text
+                    className="leading-[140.00%] text-base text-gray-900 w-full"
+                    size="txtWorkSansRegular16"
+                  >
+                    Cardiology: Advanced heart care, including diagnostic
+                    services, treatment, and rehabilitation. Orthopedics:
+                    Expertise in treating bone, joint, and muscle conditions for
+                    improved mobility and quality of life.
                   </Text>
                 </div>
               </div>
@@ -430,121 +443,204 @@ const HomePage = () => {
 
         <div className="flex flex-col font-worksans md:gap-10 gap-[61px] items-center justify-start max-w-[992px] mt-32 mx-auto md:px-5 w-full">
           <div className="flex flex-col gap-[9px] items-center justify-start">
-            <Text className="text-blue-500 text-center text-lg tracking-[2.88px] uppercase" size="txtWorkSansBold18">
+            <Text
+              className="text-blue-500 text-center text-lg tracking-[2.88px] uppercase"
+              size="txtWorkSansBold18"
+            >
               Always Caring
             </Text>
 
-            <Text className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900" size="txtYesevaOneRegular32">
+            <Text
+              className="md:text-3xl sm:text-[28px] text-[32px] text-center text-indigo-900"
+              size="txtYesevaOneRegular32"
+            >
               Our Specialties
             </Text>
           </div>
 
-
-
-
           <div className={style.MainCardio}>
-
-            <div style={{ display: 'flex', flexDirection: 'column',gap:'10px'}}>
-
-              <div className={style.Border} style={{  display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
-                <Img  className="h-11 " src="images/img_close.svg" alt="close" />
-                <Text>
-                  Gynaecologist
-                </Text>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: "14em",
+              }}
+            >
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <Img className="h-11 " src="images/img_close.svg" alt="close" />
+                <Text>Gynaecologist</Text>
               </div>
 
-
-              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
-                <Img className="h-11"  src="images/img_favorite_blue_500.svg" alt="favorite_One" />
-                <Text>
-                  Neurologists
-                </Text>
-              </div>
-
-              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
                 <Img
                   className="h-11"
                   src="images/img_favorite_blue_500.svg"
                   alt="favorite_One"
                 />
-                <Text>
-                  paediatricians
-                </Text>
+                <Text>Neurologists</Text>
               </div>
 
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column',gap:'10px'}}>
-
-              <div className={style.Border} style={{  display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
-                <Img  className="h-11 " src="images/img_close.svg" alt="close" />
-                <Text>
-                  General Medicine
-                </Text>
-              </div>
-
-
-              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
-                <Img className="h-11"  src="images/img_favorite_blue_500.svg" alt="favorite_One" />
-                <Text>
-                  Surgeon
-                </Text>
-              </div>
-
-              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
                 <Img
                   className="h-11"
                   src="images/img_favorite_blue_500.svg"
                   alt="favorite_One"
                 />
-                <Text>
-                  Radiologists
-                </Text>
+                <Text>paediatricians</Text>
               </div>
-
             </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column',gap:'10px'}}>
-
-              <div className={style.Border} style={{  display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
-                <Img  className="h-11 " src="images/img_close.svg" alt="close" />
-                <Text>
-                  Pulmonologists
-                </Text>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: "14em",
+              }}
+            >
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <Img className="h-11 " src="images/img_close.svg" alt="close" />
+                <Text>General Medicine</Text>
               </div>
 
-
-              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
-                <Img className="h-11"  src="images/img_favorite_blue_500.svg" alt="favorite_One" />
-                <Text>
-                  General Physician
-                </Text>
-              </div>
-
-              <div className={style.Border} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',gap:'2px'}}>
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
                 <Img
                   className="h-11"
                   src="images/img_favorite_blue_500.svg"
                   alt="favorite_One"
                 />
-                <Text>
-                  Internal Medicine
-                </Text>
+                <Text>Surgeon</Text>
               </div>
 
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <Img
+                  className="h-11"
+                  src="images/img_favorite_blue_500.svg"
+                  alt="favorite_One"
+                />
+                <Text>Radiologists</Text>
+              </div>
             </div>
 
-           
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                width: "14em",
+              }}
+            >
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <Img className="h-11 " src="images/img_close.svg" alt="close" />
+                <Text>Pulmonologists</Text>
+              </div>
+
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <Img
+                  className="h-11"
+                  src="images/img_favorite_blue_500.svg"
+                  alt="favorite_One"
+                />
+                <Text>General Physician</Text>
+              </div>
+
+              <div
+                className={style.Border}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <Img
+                  className="h-11"
+                  src="images/img_favorite_blue_500.svg"
+                  alt="favorite_One"
+                />
+                <Text>Internal Medicine</Text>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="font-worksans h-[573px] sm:h-[637px] md:h-[858px] mt-16 md:px-5 relative w-full">
+        <div 
+        style={{ display: "flex", alignItems : "center" }}
+        className="font-worksans h-[573px] sm:h-[637px] md:h-[858px] mt-16 md:px-5 relative w-full">
           <Img
             className="h-[573px] m-auto object-cover w-full"
             src="images/img_rectangle33.png"
             alt="rectangleThirtyThree"
           />
           <div className="absolute bg-white-A700_a2 flex md:flex-col flex-row md:gap-10 gap-[94px] h-full inset-[0] items-start justify-center m-auto p-16 md:px-10 sm:px-5 w-full">
-            <div className="flex flex-col gap-[13px] items-start justify-start md:ml-[0] ml-[123px] md:mt-0 mt-[143px]">
+            <div
+              // style={{ position: "relative", top: "50px" }}
+              className="flex flex-col gap-[13px] items-start justify-start md:ml-[0] ml-[123px] md:mt-0 mt-[143px]"
+            >
               <Text
                 className="md:text-3xl sm:text-[28px] text-[32px] text-blue-500"
                 size="txtYesevaOneRegular32Blue500"
@@ -562,11 +658,13 @@ const HomePage = () => {
                 our priority
               </Text>
             </div>
-            <HomeColumnNine className="bg-blue-100 flex md:flex-1 flex-col items-center justify-start rounded-[5px] w-2/5 md:w-full" />
+            <HomeColumnNine 
+            style={{ position: "relative", top: "50px" }}
+            className="bg-blue-100 flex md:flex-1 flex-col items-center justify-start rounded-[5px] w-2/5 md:w-full" />
           </div>
         </div>
         <HomeColumnrectangletwenty className="flex flex-col font-worksans items-center justify-start max-w-[992px] mt-16 mx-auto md:px-5 w-full" />
-        <HomeNewssection  className="bg-gray-50 flex flex-col font-worksans items-center justify-end mt-16 p-16 md:px-10 sm:px-5 w-full" />
+        <HomeNewssection className="bg-gray-50 flex flex-col font-worksans items-center justify-end mt-16 p-16 md:px-10 sm:px-5 w-full" />
         <HomeColumnFourteen className="flex flex-col font-worksans md:gap-10 gap-16 items-center justify-start max-w-[992px] mt-16 mx-auto md:px-5 w-full" />
         <Footer className="bg-indigo-900 flex font-worksans items-center justify-center mt-16 md:px-5 w-full" />
       </div>

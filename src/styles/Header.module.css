@@ -1,5 +1,18 @@
-@media screen and (min-width: 320px) and (max-width: 650px) {
+@media screen and (min-width: 320px) and (max-width: 500px) {
     .Header {
+      display: flex;
       flex-direction: column;
+      height: 25vh;
     }
+
+    .set{
+      display: flex;
+      /* gap: 5px; */
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 1024px) {
+  .Header {
+    height: 15vh;
+  }
 }

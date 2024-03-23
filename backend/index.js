@@ -8,8 +8,7 @@ const appointmentRoutes = require("./routes/appointmentRoutes");
 const doctorRoutes = require("./routes/doctorRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
-// const webhookRoutes = require("./routes/webhookRoutes");
-// const routes = require('./routes/paymentRoutes');
+const adminRoutes = require("./routes/adminRoutes"); // Import the admin routes
 
 // Load environment variables
 require("dotenv").config();
@@ -26,19 +25,19 @@ app.use(compression());
 
 // Set up the cors middleware and specify the origin
 app.use(
-  cors({
+ cors({
     origin: process.env.FRONTEND_DOMAIN, // replace with your website's URL
-  })
+ })
 );
 
 // Serve static files from the uploads/doctors and uploads/blogs directories
 app.use(
-  "/uploads/doctors",
-  express.static(path.join(__dirname, "uploads/doctors"))
+ "/uploads/doctors",
+ express.static(path.join(__dirname, "uploads/doctors"))
 );
 app.use(
-  "/uploads/blogs",
-  express.static(path.join(__dirname, "uploads/blogs"))
+ "/uploads/blogs",
+ express.static(path.join(__dirname, "uploads/blogs"))
 );
 
 // Routes
@@ -46,11 +45,10 @@ app.use("/api/appointments", appointmentRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/payments", paymentRoutes);
-// app.use("/api/webhooks", webhookRoutes);
-// app.use('/api', routes);
+app.use("/api/admin", adminRoutes); // Add the admin routes
 
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+ console.log(`Server running on port ${PORT}`);
 });

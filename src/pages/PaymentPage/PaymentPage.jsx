@@ -86,6 +86,7 @@ function PaymentPage() {
       },
     };
     var rzp1 = new window.Razorpay(options);
+    console.log(options);
     rzp1.on("payment.failed", function (response) {
       alert(response.error.code);
       alert(response.error.description);

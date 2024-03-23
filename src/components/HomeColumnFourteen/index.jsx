@@ -93,7 +93,8 @@ const HomeColumnFourteen = (props) => {
                 {homeColumnFourteenData.email.addresses.map((email, index) => (
                   <Text
                     key={index}
-                    className="mt-[9px] text-base text-indigo-900"
+                   
+                    className="mt-[9px] text-xs text-indigo-900 "
                     size="txtWorkSansRegular16Indigo900"
                   >
                     {email}

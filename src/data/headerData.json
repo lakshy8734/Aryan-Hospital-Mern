@@ -3,19 +3,19 @@
     "sections": [
       {
         "icon": "images/img_settings.svg",
-        "title": "Emergency",
+        "title": "",
         "subtitle": "9918827736",
         "content": ""
       },
       {
         "icon": "images/img_clock.svg",
-        "title": "Work Hour",
-        "subtitle": "09:00-06:00 Everyday",
+        "title": "",
+        "subtitle": "24 hours open",
         "content": ""
       },
       {
         "icon": "images/img_linkedin.svg",
-        "title": "Location",
+        "title": "",
         "subtitle": "Gurgaon",
         "content": ""
       }
