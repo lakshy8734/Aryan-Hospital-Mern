@@ -32,7 +32,8 @@ const AboutUsNavbar = ({ activePage }) => {
           </Link>
           <Link to="/aboutus">
             <Text
-              className={`text-lg w-auto ${isPageActive("aboutus")}`}
+              style={{width:'81px'}}
+              className={`text-lg w-18 ${isPageActive("aboutus")}`}
               size={
                 activePage === "aboutus"
                   ? "txtWorkSansSemiBold18"

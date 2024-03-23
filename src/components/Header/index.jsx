@@ -15,7 +15,7 @@ const Header = (props) => {
       <header className={Styles.Header}  style={{display:'flex', justifyContent:'space-around',width:'100vw',alignItems:'center'}}>
         <div>
           <Img
-            style={{width:'7em', height:'6em'}}
+            style={{width:'18em', height:'6em'}}
             src={hospitalImage}
             alt="Hospital Logo"
           />
