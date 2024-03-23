@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const { REACT_APP_BACKEND_URL } = process.env;
 
 const Login = () => {
  const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login = () => {
   // Check if both username and password are provided for admin login
   if (username && password) {
      try {
-       const adminResponse = await fetch("http://localhost:5000/api/admin/login", {
+       const adminResponse = await fetch(`${REACT_APP_BACKEND_URL}/api/admin/login`, {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify({ username, password }),
@@ -35,7 +36,7 @@ const Login = () => {
   // Check if both doctorId and password are provided for doctor login
   if (doctorId && password) {
      try {
-       const doctorResponse = await fetch("http://localhost:5000/api/doctors/login", {
+       const doctorResponse = await fetch(`${REACT_APP_BACKEND_URL}/api/doctors/login`, {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify({ doctorId, password }),

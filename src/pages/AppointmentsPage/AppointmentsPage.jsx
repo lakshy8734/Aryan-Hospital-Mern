@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const { REACT_APP_BACKEND_URL } = process.env;
 
 const AppointmentsPage = () => {
  const [appointments, setAppointments] = useState([]);
@@ -7,7 +8,7 @@ const AppointmentsPage = () => {
  useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/appointments");
+        const response = await axios.get(`${REACT_APP_BACKEND_URL}/api/appointments`);
         setAppointments(response.data);
       } catch (error) {
         console.error("Error fetching appointments:", error);
@@ -19,7 +20,7 @@ const AppointmentsPage = () => {
 
  const approveAppointment = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/appointments/${id}/approve`);
+      await axios.patch(`${REACT_APP_BACKEND_URL}/api/appointments/${id}/approve`);
       setAppointments(appointments.map(appointment => appointment._id === id ? { ...appointment, isApproved: true } : appointment));
     } catch (error) {
       console.error("Error approving appointment:", error);
@@ -28,7 +29,7 @@ const AppointmentsPage = () => {
 
  const rejectAppointment = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/appointments/${id}/reject`);
+      await axios.patch(`${REACT_APP_BACKEND_URL}/api/appointments/${id}/reject`);
       setAppointments(appointments.map(appointment => appointment._id === id ? { ...appointment, isApproved: false } : appointment));
     } catch (error) {
       console.error("Error rejecting appointment:", error);

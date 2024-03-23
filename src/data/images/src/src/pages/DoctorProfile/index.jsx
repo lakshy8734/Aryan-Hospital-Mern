@@ -4,6 +4,7 @@ import { Img, Text } from "components";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import Header from "components/Header";
+const { REACT_APP_BACKEND_URL } = process.env;
 
 const DoctorProfile = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const DoctorProfile = () => {
       }
       try {
         const response = await fetch(
-          `http://localhost:5000/api/doctors/${doctorId}`
+          `${REACT_APP_BACKEND_URL}/api/doctors/${doctorId}`
         ); // Adjust the URL based on your backend API
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -45,7 +46,7 @@ const DoctorProfile = () => {
         <div className="flex flex-col gap-[77px]">
           <div className="flex md:flex-col items-start w-[76%] md:w-full gap-6">
             <Img
-              src={`http://localhost:5000/${doctor.image.replace(/\\/g, "/")}`}
+              src={`${REACT_APP_BACKEND_URL}/${doctor.image.replace(/\\/g, "/")}`}
               alt="Doctor Image"
               className="w-[30%] md:w-full rounded-tr-[5px] rounded-tl-[5px] object-cover"
             />

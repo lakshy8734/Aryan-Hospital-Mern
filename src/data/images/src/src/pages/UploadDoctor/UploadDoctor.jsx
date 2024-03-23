@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const { REACT_APP_BACKEND_URL } = process.env;
 
 const UploadDoctor = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const UploadDoctor = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/doctors",
+        `${REACT_APP_BACKEND_URL}/api/doctors`,
         formData,
         {
           headers: {
@@ -66,7 +67,7 @@ const UploadDoctor = () => {
     event.preventDefault();
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/doctors/${deleteDoctorId}`
+        `${REACT_APP_BACKEND_URL}/api/doctors/${deleteDoctorId}`
       );
       console.log(response.data);
       toast.success("Doctor has been successfully deleted", {
@@ -85,7 +86,7 @@ const UploadDoctor = () => {
     event.preventDefault();
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/doctors/${toggleDoctorId}/toggle-active`
+        `${REACT_APP_BACKEND_URL}/api/doctors/${toggleDoctorId}/toggle-active`
       );
       console.log(response.data);
       toast.success("Doctor's active status has been successfully toggled", {

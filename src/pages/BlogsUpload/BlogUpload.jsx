@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const { REACT_APP_BACKEND_URL } = process.env;
 
 const BlogUpload = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -13,7 +14,7 @@ const BlogUpload = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/blogs");
+        const response = await axios.get(`${REACT_APP_BACKEND_URL}/api/blogs`);
         // Filter only active blogs
         const activeBlogs = response.data.filter(
           (blogPost) => blogPost.isActive
@@ -49,7 +50,7 @@ const BlogUpload = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/blogs",
+        `${REACT_APP_BACKEND_URL}/api/blogs`,
         formData,
         {
           headers: {
@@ -71,7 +72,7 @@ const BlogUpload = () => {
   const handleToggleActiveStatus = async (blogId) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/blogs/${blogId}/toggle-active`
+        `${REACT_APP_BACKEND_URL}/api/blogs/${blogId}/toggle-active`
       );
       console.log(response.data);
       alert("Blog's active status has been successfully toggled");
@@ -193,7 +194,7 @@ const BlogUpload = () => {
               <div className="md:flex-shrink-0">
                 <img
                   className="h-48 w-full object-cover md:w-48"
-                  src={`http://localhost:5000/${blogPost.image.replace(
+                  src={`${REACT_APP_BACKEND_URL}/${blogPost.image.replace(
                     /\\/g,
                     "/"
                   )}`}

@@ -1,6 +1,7 @@
 // frontend/src/pages/Product.jsx
 import React, { useEffect, usestate } from "react";
 // import TshirtImg from "./tshirt.svg";
+const { REACT_APP_BACKEND_URL } = process.env;
 
 function PaymentPage() {
   const amount = 500;
@@ -32,7 +33,7 @@ function PaymentPage() {
   }, []);
 
   const paymentHandler = async (e) => {
-    const response = await fetch("http://localhost:5000/api/payments/order", {
+    const response = await fetch(`${REACT_APP_BACKEND_URL}/api/payments/order`, {
       method: "POST",
       body: JSON.stringify({
         amount,
@@ -60,7 +61,7 @@ function PaymentPage() {
         };
 
         const validateRes = await fetch(
-          "http://localhost:5000/api/payments/order/validate",
+          `${REACT_APP_BACKEND_URL}/api/payments/order/validate`,
           {
             method: "POST",
             body: JSON.stringify(body),

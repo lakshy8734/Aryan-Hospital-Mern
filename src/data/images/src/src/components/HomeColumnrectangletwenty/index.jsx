@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Img, List, PagerIndicator, Slider, Text } from "components";
 import { FaYoutube, FaFacebookF, FaInstagram } from "react-icons/fa"; // Import the icons
+const { REACT_APP_BACKEND_URL } = process.env;
 
 const HomeColumnrectangletwenty = (props) => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const HomeColumnrectangletwenty = (props) => {
   useEffect(() => {
     const fetchData = async () => {
        try {
-         const response = await fetch("http://localhost:5000/api/doctors"); // Adjust the URL based on your backend API
+         const response = await fetch(`${REACT_APP_BACKEND_URL}/api/doctors`); // Adjust the URL based on your backend API
          if (!response.ok) {
            throw new Error("Network response was not ok");
          }
@@ -69,7 +70,7 @@ const HomeColumnrectangletwenty = (props) => {
               <div className="flex flex-col items-start justify-start sm:ml-[0] w-auto">
                 <Img
                   className="h-[350px] sm:h-auto object-cover w-[317px] md:w-full"
-                  src={`http://localhost:5000/${doctor.image.replace(
+                  src={`${REACT_APP_BACKEND_URL}/${doctor.image.replace(
                     /\\/g,
                     "/"
                   )}`} // Adjust the URL based on your backend setup

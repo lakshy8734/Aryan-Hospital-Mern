@@ -12,6 +12,8 @@ import {
 import { Img, SelectBox, Text, TextArea } from "components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const { REACT_APP_BACKEND_URL } = process.env;
+
 
 const doctorOptionsList = [
   { label: "Dr. P R Aryan", value: "Dr. P R Aryan" },
@@ -68,7 +70,8 @@ const HomeColumnNine = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/appointments", {
+      console.log(process.env.REACT_APP_BACKEND_URL);
+      const response = await fetch(`${REACT_APP_BACKEND_URL}/api/appointments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
